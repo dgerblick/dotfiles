@@ -1,0 +1,220 @@
+# set modifier
+set $super Mod4
+set $mod Mod1
+
+# Stop Focus following mouse
+focus_follows_mouse no
+
+# set font
+font pango: Noto Sans 12
+
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
+
+#autostart
+#exec --no-startup-id hsetroot -center ~/.wallpaper.png
+exec --no-startup-id xsettingsd &
+exec --no-startup-id compton -b
+exec --no-startup-id ~/.i3/i3-alternating-layout/alternating_layouts.py
+exec --no-startup-id dunst
+
+# Keybinds
+bindsym $super+Return exec alacritty
+#bindsym $super+space exec dmenu_run -nf '#F8F8F2' -nb '#282a36' -sb '#6272A4' -sf '#F8F8F2' -fn 'Fira Code 12' -p 'dmenu%'
+bindsym $super+space exec "rofi -modi 'drun,run' -show drun"
+bindsym Print exec spectacle
+bindsym $super+Shift+w exec firefox
+bindsym $mod+Tab exec rofi -show window
+
+#change volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%  # Up
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%  # Down
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle # Mute
+
+# music control
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+
+# kill focused window
+bindsym $super+c kill
+bindsym $mod+F4 kill
+
+# change focus
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# move focused window
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $super+h split h
+
+# split in vertical orientation
+bindsym $super+v split v
+
+# change container layout
+bindsym $super+a layout tabbed
+bindsym $super+s layout toggle split
+bindsym $super+d floating toggle
+bindsym $super+f fullscreen toggle
+
+# change focus between tiling / floating windows
+bindsym $super+Shift+space focus mode_toggle
+
+# workspace defs
+workspace "1:  p" output primary
+workspace "2:  p" output primary
+workspace "3:  p" output primary
+workspace "4:  p" output primary
+workspace "5:  p" output primary
+workspace "6:  p" output primary
+workspace "7:  p" output primary
+workspace "8:  p" output primary
+workspace "9:  p" output primary
+workspace "10: p" output primary
+workspace "11: p" output primary
+workspace "12: p" output primary
+workspace "1:  s" output DVI-I-0
+workspace "2:  s" output DVI-I-0
+workspace "3:  s" output DVI-I-0
+workspace "4:  s" output DVI-I-0
+workspace "5:  s" output DVI-I-0
+workspace "6:  s" output DVI-I-0
+workspace "7:  s" output DVI-I-0
+workspace "8:  s" output DVI-I-0
+workspace "9:  s" output DVI-I-0
+workspace "10: s" output DVI-I-0
+workspace "11: s" output DVI-I-0
+workspace "12: s" output DVI-I-0
+
+# switch to workspace
+bindsym $super+Control+Right workspace next
+bindsym $super+Control+Left workspace prev
+bindsym $super+1     workspace "1:  p"
+bindsym $super+2     workspace "2:  p"
+bindsym $super+3     workspace "3:  p"
+bindsym $super+4     workspace "4:  p"
+bindsym $super+5     workspace "5:  p"
+bindsym $super+6     workspace "6:  p"
+bindsym $super+7     workspace "7:  p"
+bindsym $super+8     workspace "8:  p"
+bindsym $super+9     workspace "9:  p"
+bindsym $super+0     workspace "10: p"
+bindsym $super+minus workspace "11: p"
+bindsym $super+plus  workspace "12: p"
+bindsym $super+F1    workspace "1:  s"
+bindsym $super+F2    workspace "2:  s"
+bindsym $super+F3    workspace "3:  s"
+bindsym $super+F4    workspace "4:  s"
+bindsym $super+F5    workspace "5:  s"
+bindsym $super+F6    workspace "6:  s"
+bindsym $super+F7    workspace "7:  s"
+bindsym $super+F8    workspace "8:  s"
+bindsym $super+F9    workspace "9:  s"
+bindsym $super+F10   workspace "10: s"
+bindsym $super+F11   workspace "11: s"
+bindsym $super+F12   workspace "12: s"
+
+# move focused container to workspace
+bindsym $super+Shift+1     move container to workspace "1:  p"; workspace "1:  p"
+bindsym $super+Shift+2     move container to workspace "2:  p"; workspace "2:  p"
+bindsym $super+Shift+3     move container to workspace "3:  p"; workspace "3:  p"
+bindsym $super+Shift+4     move container to workspace "4:  p"; workspace "4:  p"
+bindsym $super+Shift+5     move container to workspace "5:  p"; workspace "5:  p"
+bindsym $super+Shift+6     move container to workspace "6:  p"; workspace "6:  p"
+bindsym $super+Shift+7     move container to workspace "7:  p"; workspace "7:  p"
+bindsym $super+Shift+8     move container to workspace "8:  p"; workspace "8:  p"
+bindsym $super+Shift+9     move container to workspace "9:  p"; workspace "9:  p"
+bindsym $super+Shift+0     move container to workspace "10: p"; workspace "10: p"
+bindsym $super+Shift+minus move container to workspace "11: p"; workspace "11: p"
+bindsym $super+Shift+plus  move container to workspace "12: p"; workspace "12: p"
+bindsym $super+Shift+F1    move container to workspace "1:  s"; workspace "1:  s"
+bindsym $super+Shift+F2    move container to workspace "2:  s"; workspace "2:  s"
+bindsym $super+Shift+F3    move container to workspace "3:  s"; workspace "3:  s"
+bindsym $super+Shift+F4    move container to workspace "4:  s"; workspace "4:  s"
+bindsym $super+Shift+F5    move container to workspace "5:  s"; workspace "5:  s"
+bindsym $super+Shift+F6    move container to workspace "6:  s"; workspace "6:  s"
+bindsym $super+Shift+F7    move container to workspace "7:  s"; workspace "7:  s"
+bindsym $super+Shift+F8    move container to workspace "8:  s"; workspace "8:  s"
+bindsym $super+Shift+F9    move container to workspace "9:  s"; workspace "9:  s"
+bindsym $super+Shift+F10   move container to workspace "10: s"; workspace "10: s"
+bindsym $super+Shift+F11   move container to workspace "11: s"; workspace "11: s"
+bindsym $super+Shift+F12   move container to workspace "12: s"; workspace "12: s"
+
+# reload the configuration file
+bindsym $super+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $super+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym Left  resize shrink width  5 px or 5 ppt
+    bindsym Down  resize grow   height 5 px or 5 ppt
+    bindsym Up    resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow   width  5 px or 5 ppt
+    bindsym Return mode "default"
+}
+bindsym $super+r mode "resize"
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.background       #F8F8F2
+
+bar {
+    strip_workspace_name yes
+    colors {
+        background #282A36
+        statusline #F8F8F2
+        separator  #44475A
+        focused_workspace  #44475A #44475A #F8F8F2
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode       #FF5555 #FF5555 #F8F8F2
+    }
+    font pango: MesloLGS NF 12
+    status_command i3status-rs
+    tray_output DVI-I-0
+    output primary
+}
+bar {
+    strip_workspace_name yes
+    colors {
+        background #282A36
+        statusline #F8F8F2
+        separator  #44475A
+        focused_workspace  #44475A #44475A #F8F8F2
+        active_workspace   #282A36 #44475A #F8F8F2
+        inactive_workspace #282A36 #282A36 #BFBFBF
+        urgent_workspace   #FF5555 #FF5555 #F8F8F2
+        binding_mode       #FF5555 #FF5555 #F8F8F2
+    }
+    font pango: MesloLGS NF 12
+    output DVI-I-0
+    status_command i3status-rs ~/.config/i3status-rust/config2.toml
+}
+
+title_align center
+hide_edge_borders smart
+
+# window rules, you can find the window class using xprop
+for_window [class=".*"] border pixel 2
+for_window [class=".*"] title_format "%title"
+for_window [class="Alacritty"] title_format "%title — %class"
+for_window [class="container"] title_format "Container"
+#for_window [class=".*"] title_window_icon on
+for_window [window_role="pop-up"] floating enable
+for_window [class="floating_window"] floating enable
