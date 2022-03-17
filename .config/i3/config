@@ -12,11 +12,11 @@ font pango: Noto Sans 12
 floating_modifier $super
 
 #autostart
-#exec --no-startup-id hsetroot -center ~/.wallpaper.png
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id xsettingsd &
-exec --no-startup-id compton -b
 exec --no-startup-id ~/.i3/i3-alternating-layout/alternating_layouts.py
-exec --no-startup-id dunst
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+exec --no-startup-id picom -b
 
 # Keybinds
 bindsym $super+Return exec alacritty
@@ -68,31 +68,35 @@ bindsym $super+f fullscreen toggle
 # change focus between tiling / floating windows
 bindsym $super+Shift+space focus mode_toggle
 
+# output defs
+set $primary-output   primary
+set $secondary-output DVI-D-0
+
 # workspace defs
-workspace "1:  p" output primary
-workspace "2:  p" output primary
-workspace "3:  p" output primary
-workspace "4:  p" output primary
-workspace "5:  p" output primary
-workspace "6:  p" output primary
-workspace "7:  p" output primary
-workspace "8:  p" output primary
-workspace "9:  p" output primary
-workspace "10: p" output primary
-workspace "11: p" output primary
-workspace "12: p" output primary
-workspace "1:  s" output DVI-I-0
-workspace "2:  s" output DVI-I-0
-workspace "3:  s" output DVI-I-0
-workspace "4:  s" output DVI-I-0
-workspace "5:  s" output DVI-I-0
-workspace "6:  s" output DVI-I-0
-workspace "7:  s" output DVI-I-0
-workspace "8:  s" output DVI-I-0
-workspace "9:  s" output DVI-I-0
-workspace "10: s" output DVI-I-0
-workspace "11: s" output DVI-I-0
-workspace "12: s" output DVI-I-0
+workspace "1:  p" output $primary-output
+workspace "2:  p" output $primary-output
+workspace "3:  p" output $primary-output
+workspace "4:  p" output $primary-output
+workspace "5:  p" output $primary-output
+workspace "6:  p" output $primary-output
+workspace "7:  p" output $primary-output
+workspace "8:  p" output $primary-output
+workspace "9:  p" output $primary-output
+workspace "10: p" output $primary-output
+workspace "11: p" output $primary-output
+workspace "12: p" output $primary-output
+workspace "1:  s" output $secondary-output
+workspace "2:  s" output $secondary-output
+workspace "3:  s" output $secondary-output
+workspace "4:  s" output $secondary-output
+workspace "5:  s" output $secondary-output
+workspace "6:  s" output $secondary-output
+workspace "7:  s" output $secondary-output
+workspace "8:  s" output $secondary-output
+workspace "9:  s" output $secondary-output
+workspace "10: s" output $secondary-output
+workspace "11: s" output $secondary-output
+workspace "12: s" output $secondary-output
 
 # switch to workspace
 bindsym $super+Control+Right workspace next
@@ -185,10 +189,10 @@ bar {
         urgent_workspace   #FF5555 #FF5555 #F8F8F2
         binding_mode       #FF5555 #FF5555 #F8F8F2
     }
-    font pango: MesloLGS NF 12
+    font pango: MesloLGS NF 10
     status_command i3status-rs
-    tray_output DVI-I-0
-    output primary
+    tray_output $secondary-output
+    output $primary-output
 }
 bar {
     strip_workspace_name yes
@@ -202,19 +206,22 @@ bar {
         urgent_workspace   #FF5555 #FF5555 #F8F8F2
         binding_mode       #FF5555 #FF5555 #F8F8F2
     }
-    font pango: MesloLGS NF 12
-    output DVI-I-0
+    font pango: MesloLGS NF 10
+    output $secondary-output
     status_command i3status-rs ~/.config/i3status-rust/config2.toml
 }
 
 title_align center
-hide_edge_borders smart
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 2
+# for_window [class=".*"] border pixel 2
 for_window [class=".*"] title_format "%title"
 for_window [class="Alacritty"] title_format "%title — %class"
 for_window [class="container"] title_format "Container"
-#for_window [class=".*"] title_window_icon on
+# for_window [class=".*"] title_window_icon on
 for_window [window_role="pop-up"] floating enable
 for_window [class="floating_window"] floating enable
+
+# gaps
+for_window [class="^.*"] border pixel 0
+gaps inner 10

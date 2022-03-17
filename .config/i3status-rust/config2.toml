@@ -1,0 +1,12 @@
+icons = "material-nf"
+
+[theme]
+name = "dracula"
+[theme.overrides]
+separator = ""
+
+[[block]]
+block = "music"
+max_width = 48
+marquee = true
+buttons = ["prev", "play", "next"]
