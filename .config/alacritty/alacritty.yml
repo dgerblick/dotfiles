@@ -41,7 +41,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.7
+  opacity: 0.95
 
   # Spread additional padding evenly around the terminal content.
   #dynamic_padding: false
@@ -168,7 +168,7 @@ colors:
 # Bell
 #
 # The bell is rung every time the BEL control character is received.
-#bell:
+bell:
   # Visual Bell Animation
   #
   # Animation effect for flashing the screen when the visual bell is rung.
@@ -184,14 +184,14 @@ colors:
   #   - EaseOutExpo
   #   - EaseOutCirc
   #   - Linear
-  #animation: EaseOutExpo
+  animation: Linear
 
   # Duration of the visual bell flash. A `duration` of `0` will disable the
   # visual bell animation.
-  #duration: 0
+  duration: 100
 
   # Visual bell animation color.
-  #color: '#ffffff'
+  color: '#282a36'
 
   # Bell Command
   #
