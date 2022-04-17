@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <value type="int" value="2"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=6;x=0;y=0"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="16"/>
+      <property name="size" type="uint" value="26"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="23"/>
+        <value type="int" value="2"/>
+        <value type="int" value="11"/>
+        <value type="int" value="6"/>
+        <value type="int" value="5"/>
+        <value type="int" value="10"/>
+        <value type="int" value="4"/>
+        <value type="int" value="15"/>
+        <value type="int" value="9"/>
+        <value type="int" value="12"/>
+      </property>
+      <property name="output-name" type="string" value="Primary"/>
+      <property name="length-adjust" type="bool" value="true"/>
+      <property name="disable-struts" type="bool" value="true"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+    </property>
+    <property name="panel-2" type="empty">
+      <property name="position" type="string" value="p=6;x=540;y=14"/>
+      <property name="size" type="uint" value="26"/>
+      <property name="disable-struts" type="bool" value="true"/>
+      <property name="output-name" type="string" value="DVI-D-0"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="26"/>
+        <value type="int" value="7"/>
+        <value type="int" value="17"/>
+        <value type="int" value="19"/>
+        <value type="int" value="21"/>
+      </property>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="length-adjust" type="bool" value="false"/>
+      <property name="mode" type="uint" value="0"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-2" type="string" value="tasklist">
+      <property name="grouping" type="uint" value="1"/>
+      <property name="show-labels" type="bool" value="false"/>
+      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="switch-workspace-on-unminimize" type="bool" value="true"/>
+      <property name="include-all-workspaces" type="bool" value="true"/>
+      <property name="show-only-minimized" type="bool" value="false"/>
+      <property name="include-all-monitors" type="bool" value="false"/>
+      <property name="middle-click" type="uint" value="1"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="known-items" type="array">
+        <value type="string" value="discord1"/>
+        <value type="string" value="nm-applet"/>
+      </property>
+      <property name="menu-is-primary" type="bool" value="false"/>
+      <property name="known-legacy-items" type="array">
+      </property>
+      <property name="hidden-legacy-items" type="array">
+      </property>
+      <property name="hidden-items" type="array">
+        <value type="string" value="discord1"/>
+        <value type="string" value="nm-applet"/>
+      </property>
+      <property name="hide-new-items" type="bool" value="true"/>
+      <property name="single-row" type="bool" value="true"/>
+    </property>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="true"/>
+    </property>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="mode" type="uint" value="2"/>
+      <property name="fuzziness" type="uint" value="0"/>
+      <property name="show-seconds" type="bool" value="false"/>
+      <property name="digital-format" type="string" value="%a %B %_d, %_I:%M %p"/>
+      <property name="timezone" type="string" value="EST"/>
+    </property>
+    <property name="plugin-9" type="string" value="separator">
+      <property name="style" type="uint" value="2"/>
+    </property>
+    <property name="plugin-7" type="string" value="tasklist">
+      <property name="show-labels" type="bool" value="false"/>
+      <property name="flat-buttons" type="bool" value="true"/>
+      <property name="grouping" type="uint" value="1"/>
+      <property name="middle-click" type="uint" value="1"/>
+      <property name="switch-workspace-on-unminimize" type="bool" value="true"/>
+      <property name="window-scrolling" type="bool" value="true"/>
+      <property name="show-wireframes" type="bool" value="true"/>
+      <property name="show-handle" type="bool" value="true"/>
+      <property name="include-all-workspaces" type="bool" value="true"/>
+      <property name="include-all-monitors" type="bool" value="false"/>
+    </property>
+    <property name="plugin-5" type="string" value="notification-plugin"/>
+    <property name="plugin-4" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="firefox.instance57869"/>
+    </property>
+    <property name="plugin-10" type="string" value="xfce4-clipman-plugin"/>
+    <property name="clipman" type="empty">
+      <property name="tweaks" type="empty">
+        <property name="popup-at-pointer" type="bool" value="false"/>
+      </property>
+    </property>
+    <property name="plugin-15" type="string" value="wavelan"/>
+    <property name="plugin-17" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="true"/>
+    </property>
+    <property name="plugin-19" type="string" value="netload"/>
+    <property name="plugin-21" type="string" value="cpugraph"/>
+    <property name="plugin-23" type="string" value="i3-workspaces"/>
+    <property name="plugin-26" type="string" value="i3-workspaces"/>
+  </property>
+</channel>
