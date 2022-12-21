@@ -1,13 +1,3 @@
-# tmux attach
-#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#  if tmux ls; then
-#    exec tmux attach
-#  else
-#    exec tmux
-#  fi
-#    tmux attach || exec tmux new-session -s default-session -n default-window
-#fi
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -203,14 +193,16 @@ export PATH=/home/$USER/.local/bin:$PATH
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # CUDA Stuff
-export PATH=/usr/local/cuda-11.1/bin${PATH:+:${PATH}}
+# export PATH=/usr/local/cuda-11.1/bin${PATH:+:${PATH}}
 
 # nvm
-export NVM_DIR="$([ -z "${HOME-}"  ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #. /opt/conda/etc/profile.d/conda.sh
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv virtualenv-init -)"
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

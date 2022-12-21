@@ -1,0 +1,14 @@
+(deflisten tag_state :inital "{}" "./scripts/tags.py")
+
+(defwidget tag_icon [?tag]
+  (button :class "tag_icon ${tag.css_classes}"
+          :onclick "dwm-msg run_command view ${tag.bit_mask}"
+    (box :class "label" "${tag.name}")))
+
+(defwidget tags [?monitor]
+  (box :class "tags"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+    (for tag in "${tag_state[monitor]}"
+      (tag_icon :tag "${tag}"))))

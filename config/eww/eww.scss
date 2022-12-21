@@ -1,0 +1,77 @@
+$background: #282a36;
+$current-line: #44475a;
+$foreground: #f8f8f2;
+$comment: #6272a4;
+$cyan: #8be9fd;
+$green: #50fa7b;
+$orange: #ffb86c;
+$pink: #ff79c6;
+$purple: #bd93f9;
+$red: #ff5555;
+$yellow: #f1fa8c;
+
+@mixin borderin($color, $width: 1px) {
+  box-shadow: 0 0 0 $width $color inset;
+}
+
+* {
+  all: unset; // Unsets everything so you can style everything from scratch
+  border-radius: 15px;
+}
+
+.bar {
+  color: $foreground;
+  background-color: transparent;
+  margin: 10px;
+  font-size: 11pt;
+}
+
+.tags {
+  background-color: $background;
+
+  .tag_icon {
+    color: $comment;
+
+    .label {
+      min-width: 35px;
+    }
+
+    &:hover {
+      background-color: $current-line;
+    }
+  }
+
+  .occupied {
+    color: $foreground;
+  }
+
+  .present {
+    background-color: $current-line;
+
+    &:hover {
+      background-color: $background;
+    }
+  }
+
+  .selected {
+    @include borderin($foreground);
+  }
+}
+
+.clock {
+  background-color: $background;
+  padding: 0 10px;
+
+  .date {
+    font-size: 10pt;
+    color: $comment;
+
+    &:hover {
+      color: $foreground;
+    }
+  }
+
+  .time {
+    padding-left: 10px;
+  }
+}
