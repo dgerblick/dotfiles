@@ -2,6 +2,7 @@
 
 DOTFILES=$(dirname "$(realpath -s "$0")")
 CONFIG=${CONFIG:-"$HOME/.config"}
+OPTS="$1"
 
 dotfile() {
     SOURCE=$1
@@ -22,13 +23,23 @@ dotfile() {
         echo "$TARGET exists, moving to $TARGET.old"
     fi
 
-    # Create symlink if it doesn't already exist
-    if [[ ! -e "$TARGET" && ! -d "$TARGET" ]]; then
-        ln -s "$SOURCE" "$TARGET"
-        echo "Created symlink $SOURCE -> $TARGET"
-        echo
+
+
+    if [[ "$OPTS" == "copy" ]]; then
+        cp -r "$SOURCE" "$TARGET"
+    else
+        # Create symlink if it doesn't already exist
+        if [[ ! -e "$TARGET" && ! -d "$TARGET" ]]; then
+            ln -s "$SOURCE" "$TARGET"
+            echo "Created symlink $SOURCE -> $TARGET"
+        fi
     fi
 }
+
+if [[ -n "$OPTS" && "$OPTS" != "copy" ]]; then
+    echo "Unknown Argument \"$OPTS\""
+    exit 1
+fi
 
 #        File in repo                    File on disk
 dotfile "$DOTFILES/.p10k.zsh"           "$HOME/.p10k.zsh"
