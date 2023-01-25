@@ -38,5 +38,6 @@ dotfile "$DOTFILES/config/i3"           "$CONFIG/i3"
 dotfile "$DOTFILES/config/picom"        "$CONFIG/picom"
 dotfile "$DOTFILES/config/rofi"         "$CONFIG/rofi"
 dotfile "$DOTFILES/config/eww"          "$CONFIG/eww"
+dotfile "$DOTFILES/stalonetrayrc"       "$CONFIG/stalonetrayrc"
 
 echo "Done!"

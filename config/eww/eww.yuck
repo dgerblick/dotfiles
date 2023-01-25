@@ -6,7 +6,11 @@
              :orientation "h"
     (tags :monitor "${monitor}")
     (box)
-    (clock)))
+    (box :orientation "h"
+         :halign "end"
+         :space-evenly false
+      (tray  :monitor "${monitor}")
+      (clock :monitor "${monitor}"))))
 
 (defwindow bar0
   :monitor 0

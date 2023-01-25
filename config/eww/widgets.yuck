@@ -9,3 +9,10 @@
     (label :class "time"
            :xalign 1
            :text "${clock_val['time']}")))
+
+(defwidget tray [?monitor]
+  (button :class "tray"
+          :halign "end"
+          :width 45
+          :onclick "stalonetray"
+    "V"))

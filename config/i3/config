@@ -15,6 +15,7 @@ floating_modifier $super
 
 #autostart
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id ~/.screenlayout/vertical-left.sh
 exec --no-startup-id xsettingsd &
 exec --no-startup-id alttab -w 1 -d 1 -fg "#f8f8f2" -bg "#282a36" -frame "#44475a" -t 128x150 -i 127x64 -pk Left -nk Right -theme candy-icons -s 3
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1

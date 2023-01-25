@@ -205,4 +205,21 @@ export NVM_DIR="$HOME/.nvm"
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/dgerblick/.pyenv/versions/miniconda3-latest/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/dgerblick/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]; then
+#         . "/home/dgerblick/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/dgerblick/.pyenv/versions/miniconda3-latest/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+
