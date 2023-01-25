@@ -1,0 +1,243 @@
+# set modifier
+set $super Mod4
+set $mod Mod1
+
+set $size 10
+
+# Stop Focus following mouse
+focus_follows_mouse no
+
+# set font
+font pango: DejaVu Sans $size
+
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
+
+#autostart
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id ~/.screenlayout/vertical-left.sh
+exec --no-startup-id xsettingsd &
+exec --no-startup-id alttab -w 1 -d 1 -fg "#f8f8f2" -bg "#282a36" -frame "#44475a" -t 128x150 -i 127x64 -pk Left -nk Right -theme candy-icons -s 3
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+exec --no-startup-id xfce4-panel --disable-wm-check
+exec_always --no-startup-id picom -b
+exec_always --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd
+exec_always --no-startup-id xfce4-power-manager
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id blueman-applet
+
+# Keybinds
+bindsym $super+Return exec alacritty
+#bindsym $super+space exec dmenu_run -nf '#F8F8F2' -nb '#282a36' -sb '#6272A4' -sf '#F8F8F2' -fn 'Fira Code 12' -p 'dmenu%'
+bindsym $super+space exec "rofi -modi 'drun,run' -show drun"
+bindsym Print exec spectacle
+bindsym $super+Shift+w exec firefox
+bindsym $super+$mod+w exec firefox --private-window
+# bindsym $mod+Tab exec rofi -show window
+bindsym $super+L exec i3lock-fancy-multimonitor -n -p
+# bindsym $super+Tab workspace back_and_forth
+bindsym $super+x [urgent=latest] focus
+
+#change volume
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%  # Up
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%  # Down
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle # Mute
+
+# music control
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioStop exec mpc stop
+
+# kill focused window
+bindsym $super+c kill
+bindsym $mod+F4 kill
+
+# change focus
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+
+# move focused window
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $super+h split h
+
+# split in vertical orientation
+bindsym $super+v split v
+
+# change container layout
+bindsym $super+a layout tabbed
+bindsym $super+s layout toggle split
+bindsym $super+d floating toggle
+bindsym $super+f fullscreen toggle
+
+# change focus between tiling / floating windows
+bindsym $super+Shift+space focus mode_toggle
+
+# output defs
+set $primary-output   primary
+set $secondary-output DVI-D-0
+
+# workspace defs
+workspace "1:1" output $primary-output
+workspace "2:2" output $primary-output
+workspace "3:3" output $primary-output
+workspace "4:4" output $primary-output
+workspace "5:5" output $primary-output
+workspace "6:6" output $primary-output
+workspace "7:7" output $primary-output
+workspace "8:8" output $primary-output
+workspace "9:9" output $primary-output
+workspace "10:10" output $primary-output
+workspace "11:11" output $primary-output
+workspace "12:12" output $primary-output
+workspace "21:1" output $secondary-output
+workspace "22:2" output $secondary-output
+workspace "23:3" output $secondary-output
+workspace "24:4" output $secondary-output
+workspace "25:5" output $secondary-output
+workspace "26:6" output $secondary-output
+workspace "27:7" output $secondary-output
+workspace "28:8" output $secondary-output
+workspace "29:9" output $secondary-output
+workspace "210:10" output $secondary-output
+workspace "211:11" output $secondary-output
+workspace "212:12" output $secondary-output
+
+# switch to workspace
+bindsym $super+Control+Right workspace next
+bindsym $super+Control+Left workspace prev
+bindsym $super+1     workspace "1:1"
+bindsym $super+2     workspace "2:2"
+bindsym $super+3     workspace "3:3"
+bindsym $super+4     workspace "4:4"
+bindsym $super+5     workspace "5:5"
+bindsym $super+6     workspace "6:6"
+bindsym $super+7     workspace "7:7"
+bindsym $super+8     workspace "8:8"
+bindsym $super+9     workspace "9:9"
+bindsym $super+0     workspace "10:10"
+bindsym $super+minus workspace "11:11"
+bindsym $super+plus  workspace "12:12"
+bindsym $super+F1    workspace "21:1"
+bindsym $super+F2    workspace "22:2"
+bindsym $super+F3    workspace "23:3"
+bindsym $super+F4    workspace "24:4"
+bindsym $super+F5    workspace "25:5"
+bindsym $super+F6    workspace "26:6"
+bindsym $super+F7    workspace "27:7"
+bindsym $super+F8    workspace "28:8"
+bindsym $super+F9    workspace "29:9"
+bindsym $super+F10   workspace "210:10"
+bindsym $super+F11   workspace "211:11"
+bindsym $super+F12   workspace "212:12"
+
+# move focused container to workspace
+bindsym $super+Shift+1     move container to workspace "1:1"
+bindsym $super+Shift+2     move container to workspace "2:2"
+bindsym $super+Shift+3     move container to workspace "3:3"
+bindsym $super+Shift+4     move container to workspace "4:4"
+bindsym $super+Shift+5     move container to workspace "5:5"
+bindsym $super+Shift+6     move container to workspace "6:6"
+bindsym $super+Shift+7     move container to workspace "7:7"
+bindsym $super+Shift+8     move container to workspace "8:8"
+bindsym $super+Shift+9     move container to workspace "9:9"
+bindsym $super+Shift+0     move container to workspace "10:10"
+bindsym $super+Shift+minus move container to workspace "11:11"
+bindsym $super+Shift+plus  move container to workspace "12:12"
+bindsym $super+Shift+F1    move container to workspace "21:1"
+bindsym $super+Shift+F2    move container to workspace "22:2"
+bindsym $super+Shift+F3    move container to workspace "23:3"
+bindsym $super+Shift+F4    move container to workspace "24:4"
+bindsym $super+Shift+F5    move container to workspace "25:5"
+bindsym $super+Shift+F6    move container to workspace "26:6"
+bindsym $super+Shift+F7    move container to workspace "27:7"
+bindsym $super+Shift+F8    move container to workspace "28:8"
+bindsym $super+Shift+F9    move container to workspace "29:9"
+bindsym $super+Shift+F10   move container to workspace "210:10"
+bindsym $super+Shift+F11   move container to workspace "211:11"
+bindsym $super+Shift+F12   move container to workspace "212:12"
+
+# reload the configuration file
+bindsym $super+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $super+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $super+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym Left  resize shrink width  5 px or 5 ppt
+    bindsym Down  resize grow   height 5 px or 5 ppt
+    bindsym Up    resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow   width  5 px or 5 ppt
+    bindsym Return mode "default"
+}
+bindsym $super+r mode "resize"
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.background       #F8F8F2
+
+# bar {
+#     strip_workspace_name yes
+#     colors {
+#         background #282A36
+#         statusline #F8F8F2
+#         separator  #44475A
+#         focused_workspace  #44475A #44475A #F8F8F2
+#         active_workspace   #282A36 #44475A #F8F8F2
+#         inactive_workspace #282A36 #282A36 #BFBFBF
+#         urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#         binding_mode       #FF5555 #FF5555 #F8F8F2
+#     }
+#     font pango: MesloLGS NF $size
+#     status_command i3status-rs
+#     tray_output $secondary-output
+#     output $primary-output
+# }
+# bar {
+#     strip_workspace_name yes
+#     colors {
+#         background #282A36
+#         statusline #F8F8F2
+#         separator  #44475A
+#         focused_workspace  #44475A #44475A #F8F8F2
+#         active_workspace   #282A36 #44475A #F8F8F2
+#         inactive_workspace #282A36 #282A36 #BFBFBF
+#         urgent_workspace   #FF5555 #FF5555 #F8F8F2
+#         binding_mode       #FF5555 #FF5555 #F8F8F2
+#     }
+#     font pango: MesloLGS NF $size
+#     output $secondary-output
+#     status_command i3status-rs ~/.config/i3status-rust/config2.toml
+# }
+
+title_align center
+
+# window rules, you can find the window class using xprop
+# for_window [class=".*"] border pixel 2
+for_window [class=".*"] title_format "%title"
+for_window [class="Alacritty"] title_format "%title — %class"
+for_window [class="container"] title_format "Container"
+# for_window [class=".*"] title_window_icon on
+for_window [window_role="pop-up"] floating enable
+for_window [class="floating_window"] floating enable
+
+# gaps
+for_window [class="^.*"] border pixel 0
+for_window [title="^.*"] border pixel 0
+gaps inner $size
+gaps outer 0
+for_window [class="polybar"] gaps inner 0
+

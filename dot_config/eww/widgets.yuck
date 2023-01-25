@@ -1,0 +1,18 @@
+(deflisten clock_val "./scripts/clock.py")
+(defwidget clock [?monitor]
+  (box :class "clock"
+       :orientation "h"
+       :halign "end"
+       :space-evenly false
+    (label :class "date"
+           :text "${clock_val['date']}")
+    (label :class "time"
+           :xalign 1
+           :text "${clock_val['time']}")))
+
+(defwidget tray [?monitor]
+  (button :class "tray"
+          :halign "end"
+          :width 45
+          :onclick "stalonetray"
+    "V"))
