@@ -26,7 +26,7 @@ class IPCClient(socket.socket):
         return super().connect(address)
 
     def send(self, msg_type: int, data=''):
-        str_msg = json.dumps(data, ensure_ascii=True)
+        str_msg = json.dumps(data, ensure_ascii=True, separators=(',', ':'))
         msg_len = len(str_msg) + 1
 
         header = struct.pack(f'=7sIB', b'DWM-IPC', msg_len, msg_type)
@@ -36,8 +36,9 @@ class IPCClient(socket.socket):
 
     def recv(self):
         header = super().recv(12)
+        assert len(header) == 12
         (magic, length, type) = struct.unpack('=7sIB', header)
-        assert (magic == b'DWM-IPC')
+        assert magic == b'DWM-IPC'
         msg_bytes = super().recv(length)
         msg_str = str(msg_bytes[:-1], 'utf-8')
         return json.loads(msg_str)

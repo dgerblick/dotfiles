@@ -2,7 +2,7 @@
 
 (defwidget tag_icon [?tag]
   (button :class "tag_icon ${tag.css_classes}"
-          :onclick "dwm-msg run_command view ${tag.bit_mask}"
+          :onclick "./scripts/focustag.py ${tag.monitor_num} ${tag.bit_mask}"
     (box :class "label" "${tag.name}")))
 
 (defwidget tags [?monitor]

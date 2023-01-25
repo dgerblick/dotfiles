@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import dwm_ipc
 import json
@@ -14,17 +14,18 @@ def css_classes(monitor_state, tag):
 
 def print_state(state, tags):
     print(json.dumps({
-        x: [
+        monitor_num: [
             {
                 **tag,
-                'css_classes': css_classes(state.get(x), tag)
+                'css_classes': css_classes(state.get(monitor_num), tag),
+                'monitor_num': monitor_num,
             } for tag in tags
-        ] for x in state
+        ] for monitor_num in state
     }, separators=(',', ':')), flush=True)
 
 
 def get_presence(dwm_msg: dwm_ipc.IPCClient, client_id):
-    if client_id is None:
+    if client_id is None or client_id == 0:
         return 0
     req = {'client_window_id': client_id}
     client = dwm_msg.msg(dwm_msg.IPC_TYPE_GET_DWM_CLIENT, req)
@@ -50,9 +51,9 @@ if __name__ == '__main__':
                 client = dwm_msg.msg(dwm_msg.IPC_TYPE_GET_DWM_CLIENT, req)
             state.update({monitor_num: {
                 'client_id': client_id,
-                'selected': tag_state.get('selected'),
-                'occupied': tag_state.get('occupied'),
-                'present': client.get('tags')
+                'selected': tag_state.get('selected') or 0,
+                'occupied': tag_state.get('occupied') or 0,
+                'present': client.get('tags') or 0
             }})
 
         dwm_sub.subscribe(dwm_sub.TAG_CHANGE_EVENT)
