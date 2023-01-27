@@ -109,7 +109,11 @@ font:
   bold_italic:
     family: MesloLGS NF
     style: Bold Italic
+{{- if eq .chezmoi.hostname "feros" }}
+  size: 7.0
+{{- else }}
   size: 10.0
+{{- end }}
 
 # Colors (Dracula)
 colors:
