@@ -190,7 +190,7 @@ alias sshkg="ssh-keygen -t ed25519 -C $(git config user.email)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Custom
-export PATH=/home/$USER/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # CUDA Stuff
@@ -206,4 +206,9 @@ export NVM_DIR="$HOME/.nvm"
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+command -v pyenv >/dev/null && eval "$(pyenv init -)"
+
+# xinu lab machines
+if [[ "$HOST" =~ "^xinu[0-9]*\.cs\.purdue\.edu$" ]]; then
+  export PATH=${PATH}:/p/xinu/bin
+fi
