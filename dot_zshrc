@@ -155,7 +155,7 @@ ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux alias-finder cargo colored-man-pages colorize copybuffer copydir copyfile dirhistory git npm node pip pyenv python ripgrep rust sudo tmux zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(archlinux alias-finder colored-man-pages colorize copybuffer copyfile dirhistory git npm node pip pyenv python ripgrep rust sudo tmux zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 

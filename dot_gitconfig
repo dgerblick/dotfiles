@@ -1,0 +1,7 @@
+[user]
+	email = daniel.gerblick@gmail.com
+	name = Daniel Gerblick
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
