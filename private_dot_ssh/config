@@ -1,0 +1,14 @@
+Host *
+  IdentityFile ~/.ssh/id_ed25519
+
+Host *.cs.purdue.edu
+  User dgerblic
+  HostName %h
+
+Host k2so
+  HostName bidc.purduearc.com
+  User danielg
+
+Host ilos
+  HostName ilos.local
+  User dgerblick
