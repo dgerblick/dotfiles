@@ -31,7 +31,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -155,7 +155,7 @@ ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux alias-finder colored-man-pages colorize copybuffer copyfile dirhistory git npm node pip python ripgrep rust sudo tmux zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(archlinux alias-finder colored-man-pages colorize copybuffer copyfile dirhistory git npm node pip python ripgrep rust sudo zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
