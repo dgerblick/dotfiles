@@ -1,0 +1,8 @@
+{{- $secrets := false -}}
+
+{{- if (env "SECRETS") -}}
+    {{- $secrets = true -}}
+{{- end -}}
+
+data:
+    secrets: {{ $secrets }}

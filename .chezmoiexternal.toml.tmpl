@@ -28,8 +28,12 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+{{- if .secrets }}
 [".local/bin/bw"]
     type = "file"
     url = "https://vault.bitwarden.com/download/?app=cli&platform=linux"
-    format = "zip"
     executable = true
+    [".local/bin/bw".filter]
+        command = "gunzip"
+        args = ["--suffix=.zip"]
+{{- end }}

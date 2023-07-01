@@ -1,9 +1,0 @@
-[edit]
-    command = "code"
-    args = ["--wait"]
-[diff]
-    command = "code"
-    args = ["--wait", "--diff", "{{ .Destination }}", "{{ .Target }}"]
-[merge]
-    command = "code"
-    args = ["--wait", "--diff", "{{ .Destination }}", "{{ .Target }}"]
