@@ -1,8 +1,14 @@
 {{- $secrets := false -}}
+{{- $work := false -}}
 
 {{- if (env "SECRETS") -}}
     {{- $secrets = true -}}
 {{- end -}}
 
+{{- if (env "WORK") -}}
+    {{- $work = true -}}
+{{- end -}}
+
 data:
     secrets: {{ $secrets }}
+    work: {{ $work }}

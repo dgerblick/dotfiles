@@ -155,7 +155,15 @@ ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux alias-finder colored-man-pages colorize copybuffer copyfile dirhistory git npm node pip python ripgrep rust sudo zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(alias-finder colored-man-pages colorize copybuffer copyfile dirhistory git pip python ripgrep sudo wd zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+
+{{- if .work }}
+# plugins on work machines
+plugins+=(jira)
+{{- else }}
+# plugins on personal machines
+plugins+=(archlinux npm node rust)
+{{- end }}
 
 source $ZSH/oh-my-zsh.sh
 
@@ -209,8 +217,3 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 command -v pyenv >/dev/null && eval "$(pyenv init -)"
-
-# xinu lab machines
-if [[ "$HOST" =~ "^xinu[0-9]*\.cs\.purdue\.edu$" ]]; then
-  export PATH=${PATH}:/p/xinu/bin
-fi

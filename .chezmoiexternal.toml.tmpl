@@ -28,12 +28,14 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-{{- if .secrets }}
+{{- if and (.secrets) (eq .chezmoi.os "windows") }}
+[".local/bin/bw.exe"]
+    type = "archive-file"
+    path = "bw.exe"
+    url = "https://vault.bitwarden.com/download/?app=cli&platform=windows"
+{{- else if and (.secrets) (eq .chezmoi.os "linux") }}
 [".local/bin/bw"]
-    type = "file"
+    type = "archive-file"
+    path = "bw"
     url = "https://vault.bitwarden.com/download/?app=cli&platform=linux"
-    executable = true
-    [".local/bin/bw".filter]
-        command = "gunzip"
-        args = ["--suffix=.zip"]
 {{- end }}
