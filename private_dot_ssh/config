@@ -1,14 +1,8 @@
 Host *
   IdentityFile ~/.ssh/id_ed25519
 
-Host *.cs.purdue.edu
-  User dgerblic
-  HostName %h
+Host noveria
+  User root
 
-Host k2so
-  HostName bidc.purduearc.com
-  User danielg
-
-Host ilos
-  HostName ilos.local
-  User dgerblick
+Host omv
+  User root
