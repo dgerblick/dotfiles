@@ -157,12 +157,9 @@ ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(alias-finder colored-man-pages colorize copybuffer copyfile dirhistory git pip python sudo wd zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
-{{- if .work }}
-# plugins on work machines
-plugins+=(jira)
-{{- else }}
+{{- if not .work }}
 # plugins on personal machines
-plugins+=(npm node rust helm kubectl)
+plugins+=(npm node rust)
 {{- end }}
 
 source $ZSH/oh-my-zsh.sh
@@ -203,6 +200,7 @@ alias sshkg="ssh-keygen -t ed25519 -C $(git config user.email)"
 export PATH=$HOME/.local/bin:$PATH
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
+{{- if not .work }}
 # CUDA Stuff
 # export PATH=/usr/local/cuda-11.1/bin${PATH:+:${PATH}}
 
@@ -217,3 +215,10 @@ export NVM_DIR="$HOME/.nvm"
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 command -v pyenv >/dev/null && eval "$(pyenv init -)"
+{{- end }}
+
+# ssh-agent auto-launch (0 = agent running with key; 1 = w/o key; 2 = not run.)
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+if   [ $agent_run_state = 2 ]; then
+  eval $(ssh-agent -s) > /dev/null
+fi

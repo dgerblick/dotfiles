@@ -1,8 +1,0 @@
-Host *
-  IdentityFile ~/.ssh/id_ed25519
-
-Host noveria
-  User root
-
-Host omv
-  User root

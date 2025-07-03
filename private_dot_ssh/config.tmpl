@@ -1,0 +1,12 @@
+Host *
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_ed25519
+  AddKeysToAgent yes
+
+{{- if not .work }}
+Host noveria
+  User root
+
+Host omv
+  User root
+{{- end }}
