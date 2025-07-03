@@ -1,7 +1,9 @@
+{{- if .secrets }}
 Host *
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/id_ed25519
   AddKeysToAgent yes
+{{- end }} 
 
 {{- if not .work }}
 Host noveria
